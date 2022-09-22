@@ -1,4 +1,14 @@
 package com.develogical;
+import org.junit.Test;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import static org.hamcrest.CoreMatchers.containsString;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 public class QueryProcessor {
 
@@ -15,6 +25,16 @@ public class QueryProcessor {
         }
         else if (query.toLowerCase().contains("what is your name")) {
             return "cara";
+        }
+        else if (query.toLowerCase().contains("plus")) {
+            int number1 = Integer.parseInt(query.substring(7, query.indexOf("plus")));
+            int number2 = Integer.parseInt(query.substring(query.indexOf("plus")+5, query.length()-1));
+            return Integer.toString(number1+number2);
+        }
+        else if (query.toLowerCase().contains("multiplied")) {
+            int number1 = Integer.parseInt(query.substring(7, query.indexOf("multiplied")));
+            int number2 = Integer.parseInt(query.substring(query.indexOf("by")+3, query.length()-1));
+            return Integer.toString(number1*number2);
         }
         return "";
     }
