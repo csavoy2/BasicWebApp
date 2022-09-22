@@ -14,7 +14,7 @@ public class QueryProcessor {
                     "this line isnt really necessary anymore";
         }
         else if (query.toLowerCase().contains("what is your name")) {
-            return "cara+bonnie";
+            return "cara";
         }
         return "";
     }
